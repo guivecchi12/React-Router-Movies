@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import SavedList from './Movies/SavedList';
 
@@ -20,6 +21,7 @@ const App = () => {
     }
     getMovies();
   }, []);
+  console.log(movieList);
 
   const addToSavedList = movie => {
     setSavedList([...savedList, movie]);
@@ -29,6 +31,7 @@ const App = () => {
     <div>
       <SavedList list={savedList} />
       <div>Replace this Div with your Routes</div>
+      <Route path="/" movies={movieList}></Route>
     </div>
   );
 };
